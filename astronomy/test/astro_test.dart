@@ -143,8 +143,10 @@ void main() {
     test('M31 best window peaks at transit inside the dark window', () {
       final n = nightFor(islamabad, testTime);
       final w = bestViewingWindow(fixed(m31), islamabad, n.dark!);
+      final r = riseTransitSet(fixed(m31), islamabad, n.solarMidnight);
       expect(w, isNotNull);
-      expectTime(w!.peak, DateTime.utc(2026, 10, 28, 22, 22).subtract(pkt), 3);
+      expectTime(w!.peak, DateTime.utc(2026, 10, 28, 22, 22).subtract(pkt), 1);
+      expect(w.peak.difference(r.transit).inSeconds.abs(), lessThan(5), reason: 'peak should be the exact transit');
       expect(w.peakAltDeg, closeTo(82.4, 0.1));
     });
   });

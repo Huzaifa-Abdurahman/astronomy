@@ -55,7 +55,10 @@ final routerProvider = Provider<GoRouter>((ref) {
           StatefulShellBranch(routes: [
             GoRoute(
               path: Routes.explore,
-              builder: (_, state) => ExploreScreen(initialFilter: state.uri.queryParameters['type']),
+              builder: (_, state) => ExploreScreen(
+                initialFilter: state.uri.queryParameters['type'],
+                focusSearch: state.uri.queryParameters['search'] == '1',
+              ),
             ),
           ]),
           StatefulShellBranch(routes: [GoRoute(path: Routes.nearby, builder: (_, _) => const NearbyScreen())]),

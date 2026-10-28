@@ -27,6 +27,7 @@ class SkyObject {
     required this.decDeg,
     required this.mag,
     this.subtype,
+    this.altId,
     this.constellation,
     this.distance,
     this.image,
@@ -43,6 +44,9 @@ class SkyObject {
 
   /// Finer description, e.g. "spiral galaxy", "globular cluster".
   final String? subtype;
+
+  /// Cross-identification, e.g. "NGC 224" for M31.
+  final String? altId;
   final String? constellation;
   final String? distance;
   final String? image;
@@ -59,6 +63,7 @@ class SkyObject {
         decDeg: (j['decDeg'] as num?)?.toDouble(),
         mag: (j['mag'] as num?)?.toDouble(),
         subtype: j['subtype'] as String?,
+        altId: j['altId'] as String?,
         constellation: j['constellation'] as String?,
         distance: j['distance'] as String?,
         image: j['image'] as String?,

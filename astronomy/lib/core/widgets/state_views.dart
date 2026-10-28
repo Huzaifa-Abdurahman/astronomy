@@ -6,6 +6,8 @@ import 'cosmo.dart';
 import 'gradient_button.dart';
 import 'motion.dart';
 
+export 'cosmo.dart' show CosmoPose;
+
 /// Shimmering placeholder card used while data loads.
 class ShimmerBox extends StatelessWidget {
   const ShimmerBox({super.key, this.height = 80, this.radius = 18});

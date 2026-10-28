@@ -1,6 +1,8 @@
 /// Rise, transit and set times, visibility windows and altitude curves.
 library;
 
+import 'dart:math' as math;
+
 import 'angles.dart';
 import 'coords.dart';
 import 'models.dart';
@@ -151,5 +153,32 @@ VisibilityWindow? bestViewingWindow(
       runStart = null;
     }
   }
-  return best;
+  if (best == null) return null;
+  // Sharpen the sampled peak to the second (it is the transit when the
+  // transit falls inside the window).
+  final refined = _refineMaximum(position, observer, best.peak, best.start, best.end);
+  return VisibilityWindow(start: best.start, end: best.end, peak: refined.time, peakAltDeg: refined.altDeg);
+}
+
+/// Ternary search for the highest altitude within ±2 min of [around],
+/// clamped to [lo]…[hi]. Altitude is unimodal over such a short span.
+AltitudeSample _refineMaximum(PositionFn position, Observer observer, DateTime around, DateTime lo, DateTime hi) {
+  double alt(int ms) {
+    final t = DateTime.fromMillisecondsSinceEpoch(ms, isUtc: true);
+    return horizontalAt(position(t), observer, t).altDeg;
+  }
+
+  var a = math.max(around.millisecondsSinceEpoch - 120000, lo.millisecondsSinceEpoch);
+  var b = math.min(around.millisecondsSinceEpoch + 120000, hi.millisecondsSinceEpoch);
+  while (b - a > 1000) {
+    final m1 = a + (b - a) ~/ 3;
+    final m2 = b - (b - a) ~/ 3;
+    if (alt(m1) < alt(m2)) {
+      a = m1;
+    } else {
+      b = m2;
+    }
+  }
+  final ms = (a + b) ~/ 2;
+  return AltitudeSample(DateTime.fromMillisecondsSinceEpoch(ms, isUtc: true), alt(ms));
 }
