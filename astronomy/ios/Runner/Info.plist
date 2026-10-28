@@ -6,8 +6,12 @@
 	<true/>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>SkyGuide uses your location to calculate where stars, planets and satellites are in your sky.</string>
+	<key>NSMotionUsageDescription</key>
+	<string>SkyGuide uses the compass and tilt sensors to point your phone at a sky object.</string>
 	<key>CFBundleDisplayName</key>
-	<string>Astronomy</string>
+	<string>SkyGuide</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>

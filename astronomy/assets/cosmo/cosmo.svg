@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 110" width="200" height="220">
+<rect x="24" y="50" width="52" height="38" rx="12" fill="#8C96C8"/>
+<rect x="32" y="54" width="36" height="34" rx="12" fill="#F2F4FF"/>
+<rect x="43" y="64" width="14" height="9" rx="2" fill="#3EE7FF"/>
+<rect x="36" y="84" width="11" height="14" rx="5" fill="#F2F4FF"/>
+<rect x="53" y="84" width="11" height="14" rx="5" fill="#F2F4FF"/>
+<rect x="34" y="96" width="14" height="7" rx="3" fill="#5B66A6"/>
+<rect x="52" y="96" width="14" height="7" rx="3" fill="#5B66A6"/>
+<rect x="20" y="58" width="14" height="10" rx="5" fill="#F2F4FF" transform="rotate(30 27 63)"/>
+<g id="wave-arm"><rect x="70" y="42" width="10" height="20" rx="5" fill="#F2F4FF"/><circle cx="75" cy="40" r="5" fill="#5B66A6"/></g>
+<circle cx="50" cy="34" r="24" fill="#F2F4FF" stroke="#C9D0EE" stroke-width="2"/>
+<rect x="34" y="23" width="32" height="23" rx="11" fill="#0B1240"/>
+<ellipse cx="41" cy="29" rx="5" ry="3" fill="#3EE7FF" opacity="0.7"/>
+<circle cx="45" cy="35" r="2.2" fill="#3EE7FF"/>
+<circle cx="55" cy="35" r="2.2" fill="#3EE7FF"/>
+<path d="M46 40q4 3 8 0" stroke="#3EE7FF" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+<line x1="50" y1="10" x2="50" y2="5" stroke="#C9D0EE" stroke-width="2"/>
+<circle id="antenna" cx="50" cy="4" r="3" fill="#A06BFF"/>
+</svg>
