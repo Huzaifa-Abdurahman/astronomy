@@ -1,0 +1,3 @@
+# Root-level ignores (Flutter project ignores live in astronomy/.gitignore)
+.env
+*.log
