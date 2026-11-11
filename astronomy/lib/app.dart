@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'core/router.dart';
 import 'core/theme/app_theme.dart';
+import 'data/profile_repository.dart';
 import 'data/settings.dart';
 
 class SkyGuideApp extends ConsumerWidget {
@@ -20,6 +21,8 @@ class SkyGuideApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final nightVision = ref.watch(settingsProvider.select((s) => s.nightVision));
+    // Keeps settings and saved objects in sync with the Firestore profile.
+    ref.watch(profileSyncProvider);
     return MaterialApp.router(
       title: 'SkyGuide',
       debugShowCheckedModeBanner: false,

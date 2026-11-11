@@ -18,4 +18,12 @@ abstract final class PrefKeys {
   static const alertsEnabled = 'alerts_enabled';
   static const precession = 'precession';
   static const reminders = 'reminders';
+
+  /// Debug-only local test login and its profile.
+  static const testLogin = 'test_login';
+  static const testProfile = 'test_profile';
+
+  /// Per-satellite caches; the NORAD id is appended.
+  static const satPassesPrefix = 'sat_passes_';
+  static const satElementsPrefix = 'sat_elements_';
 }

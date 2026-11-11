@@ -70,5 +70,17 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<!-- Firebase Auth: lets the Google sign-in browser flow return to the app (encoded iOS app id). -->
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>app-1-1039114847895-ios-7992643a05f6eecee14bd2</string>
+			</array>
+		</dict>
+	</array>
 </dict>
 </plist>

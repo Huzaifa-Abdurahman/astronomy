@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1039114847895",
+    "project_id": "skyguide-app-l0hz",
+    "storage_bucket": "skyguide-app-l0hz.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1039114847895:android:9df939c07dff8561e14bd2",
+        "android_client_info": {
+          "package_name": "com.skyguide.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDm3grxbIK4yVchqJIdqmnv_EOEqeb3nu4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,26 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "skyguide-app-l0hz",
+          "appId": "1:1039114847895:android:9df939c07dff8561e14bd2",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "skyguide-app-l0hz",
+          "configurations": {
+            "android": "1:1039114847895:android:9df939c07dff8561e14bd2",
+            "ios": "1:1039114847895:ios:7992643a05f6eecee14bd2",
+            "web": "1:1039114847895:web:1445f396bcf7b54ce14bd2"
+          }
+        }
+      }
+    }
+  },
+  "firestore": {
+    "rules": "firestore.rules"
+  }
+}

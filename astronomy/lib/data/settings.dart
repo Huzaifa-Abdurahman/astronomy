@@ -61,6 +61,26 @@ class SettingsController extends Notifier<AppSettings> {
     state = state.copyWith(precession: v);
   }
 
+  /// Replaces the synced settings with values from the signed-in profile.
+  void applyRemote({
+    required bool nightVision,
+    required bool alertsEnabled,
+    required bool precession,
+    required Set<String> favourites,
+  }) {
+    final p = ref.read(sharedPreferencesProvider);
+    p.setBool(PrefKeys.nightVision, nightVision);
+    p.setBool(PrefKeys.alertsEnabled, alertsEnabled);
+    p.setBool(PrefKeys.precession, precession);
+    p.setString(PrefKeys.favourites, jsonEncode(favourites.toList()));
+    state = AppSettings(
+      nightVision: nightVision,
+      alertsEnabled: alertsEnabled,
+      precession: precession,
+      favourites: favourites,
+    );
+  }
+
   void toggleFavourite(String id) {
     final next = {...state.favourites};
     if (!next.remove(id)) next.add(id);

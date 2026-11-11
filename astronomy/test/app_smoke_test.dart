@@ -4,6 +4,7 @@ import 'package:astronomy/app.dart';
 import 'package:astronomy/core/format.dart';
 import 'package:astronomy/core/router.dart';
 import 'package:astronomy/core/theme/app_text.dart';
+import 'package:astronomy/data/auth_service.dart';
 import 'package:astronomy/data/catalog_repository.dart';
 import 'package:astronomy/data/clock.dart';
 import 'package:astronomy/data/prefs.dart';
@@ -33,7 +34,12 @@ Future<ProviderContainer> bootAppForTest(WidgetTester tester) async {
   });
   final prefs = await SharedPreferences.getInstance();
   final container = ProviderContainer(
-    overrides: [sharedPreferencesProvider.overrideWithValue(prefs), clockProvider.overrideWithValue(() => testTime)],
+    overrides: [
+      sharedPreferencesProvider.overrideWithValue(prefs),
+      clockProvider.overrideWithValue(() => testTime),
+      // Firebase is not initialised in tests: run signed out.
+      authUserProvider.overrideWith((ref) => Stream.value(null)),
+    ],
   );
   await tester.binding.setSurfaceSize(const Size(390, 844));
   await tester.runAsync(() => container.read(catalogProvider.future));

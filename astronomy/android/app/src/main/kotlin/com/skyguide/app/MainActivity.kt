@@ -1,4 +1,4 @@
-package com.example.astronomy
+package com.skyguide.app
 
 import io.flutter.embedding.android.FlutterActivity
 
