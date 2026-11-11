@@ -21,7 +21,10 @@ import '../../data/clock.dart';
 import '../../data/location_service.dart';
 import '../../data/settings.dart';
 import '../../data/sky_providers.dart';
+import '../../astro/sky_track.dart';
 import 'altitude_chart.dart';
+import 'find_it_guide.dart';
+import 'solar_system_view.dart';
 
 /// Screen 5: object detail. Positions recalculate on the 10 s clock tick.
 class ObjectDetailScreen extends ConsumerWidget {
@@ -144,6 +147,12 @@ class _Body extends ConsumerWidget {
           if (tonight == null) const ShimmerBox(height: 240) else _TonightCard(tonight: tonight, now: now),
           const SizedBox(height: 14),
           if (tonight != null) _RiseSetRow(tonight: tonight),
+          const SizedBox(height: 14),
+          FindItGuide(objectId: object.id),
+          if (planetFromId(object.id) case final planet? when SolarSystemView.supports(planet)) ...[
+            const SizedBox(height: 14),
+            SolarSystemView(planet: planet, name: object.name, now: now),
+          ],
           const SizedBox(height: 18),
           GradientButton(
             label: 'Point me to it',

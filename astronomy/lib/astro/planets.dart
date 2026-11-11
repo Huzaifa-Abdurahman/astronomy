@@ -208,3 +208,20 @@ double moonIlluminatedFraction(DateTime t) {
   final elong = norm360(el.m + el.w + el.n - (sun.m + sun.w));
   return (1 - cosD(elong)) / 2;
 }
+
+/// Heliocentric ecliptic position of a planet at [t], in AU, for the
+/// solar-system diagram. Earth is the Sun's geocentric position reversed.
+/// (Schlyter §6: the same orbital elements as [planetPosition], without the
+/// geocentric shift or the Jupiter/Saturn perturbations, which are far too
+/// small to see on a diagram.)
+({double x, double y}) heliocentricXy(Planet p, DateTime t) {
+  final el = _planetElements(p, schlyterDay(t));
+  final o = _orbitPosition(el);
+  final h = _eclipticXyz(el, o.v, o.r);
+  return (x: h.x, y: h.y);
+}
+
+({double x, double y}) earthHeliocentricXy(DateTime t) {
+  final s = _sunXy(schlyterDay(t));
+  return (x: -s.x, y: -s.y);
+}
